@@ -29,7 +29,7 @@ Heroes should be able to have many powers, and many heroes may have the same pow
 
 Create a `Heroes` view with
 
-- A `GET` request to retrieve all heroes from `localhost:5000/hero/all`. The table it is displayed on should have a column for the hero's `name`, `powers` (a list of all powers, these powers will need to be added in the database for now until pro mode, since there is no `hero_power` post yet), and a column for `Delete`. The `backstory` and power `description`s are too long to put on a view like this, so don't list them out on this page
+- A `GET` request to retrieve all heroes from `localhost:5000/hero/all`. The table it is displayed on should have a column for the hero's `name`, `powers` (a list of all powers, these powers will need to be added in the database for now until pro mode, since there is no `hero_power` post yet), and a column for `Delete`. The `backstory` and power `description`s are too long to put on a view like this, so don't list them out on this page. If a hero has multiple powers, the hero should only be listed in a single row. It may help to research [Array Aggregates (array_agg)](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html) for this part.
 - A `POST` route that allows a user to add a new hero
 - A `DELETE` request like `localhost:5000/hero/1` to delete a hero from the database
 

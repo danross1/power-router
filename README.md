@@ -2,7 +2,7 @@
 
 ## Before Lecture
 
-Create the `comicbook_heroes` database and create the `powers` table (SQL queries can be found in the `database.sql` file.)
+Create the `comicbook_heroes` database and create the `power` table (SQL queries can be found in the `database.sql` file.)
 
 ## In Lecture
 

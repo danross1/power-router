@@ -24,7 +24,11 @@ Create a `Hero` table with
 - name
 - backstory
 
-Heroes should be able to have many powers, and many heroes may have the same powers (many to many). Create a junction table to accomodate this. In the junction table, use `ON DELETE CASCADE` after the `REFERENCES` piece in order to allow deleting heroes who are still listed in the junction table. [(Stack overflow example)](https://stackoverflow.com/a/3712389/3644991)
+Heroes should be able to have many powers, and many heroes may have the same powers (many to many). Create a junction table to accomodate this. In the junction table, use `ON DELETE CASCADE` after the `REFERENCES` piece in order to allow deleting heroes who are still listed in the junction table. Example:
+
+```SQL
+hero_id INT REFERENCES hero ON DELETE CASCADE
+```
 
 Create a `Heroes` view with
 

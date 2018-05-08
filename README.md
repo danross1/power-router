@@ -16,7 +16,7 @@ Notes:
 
 - Going forward, all `$http` requests should be made from services.
 
-## Base Mode
+## Require Features
 
 Create a `Hero` table with
 
@@ -24,7 +24,7 @@ Create a `Hero` table with
 - name
 - backstory
 
-Heroes should be able to have many powers, and many heroes may have the same powers (many to many). Create a junction table to accomodate this. In the junction table, use `ON DELETE CASCADE` after the `REFERENCES` piece in order to allow deleting heroes who are still listed in the junction table. Example:
+Heroes should be able to have many powers, and many heroes may have the same powers (many to many). Create a junction table to accommodate this. In the junction table, use `ON DELETE CASCADE` after the `REFERENCES` piece in order to allow deleting heroes who are still listed in the junction table. Example:
 
 ```SQL
 hero_id INT REFERENCES hero ON DELETE CASCADE
@@ -32,11 +32,11 @@ hero_id INT REFERENCES hero ON DELETE CASCADE
 
 Create a `Heroes` view with
 
-- A `GET` request to retrieve all heroes from `localhost:5000/hero/all`. The table it is displayed on should have a column for the hero's `name`, `powers` (a list of all powers, these powers will need to be added in the database for now until pro mode, since there is no `hero_power` post yet), and a column for `Delete`. The `backstory` and power `description`s are too long to put on a view like this, so don't list them out on this page. If a hero has multiple powers, the hero should only be listed in a single row. Research [Array Aggregates (array_agg)](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html) for this part.
-- A `POST` route that allows a user to add a new hero (if you would like to add powers to your new hero, do that in the database for now. The ability to add powers in the UI will be added in Pro mode)
+- A `GET` request to retrieve all heroes from `localhost:5000/hero/all`. The table it is displayed on should have a column for the hero's `name`, `powers` (a list of all powers, these powers will need to be added in the database for now until stretch goals, since there is no `hero_power` post yet), and a column for `Delete`. The `backstory` and power `description`s are too long to put on a view like this, so don't list them out on this page. If a hero has multiple powers, the hero should only be listed in a single row. Research [Array Aggregates (array_agg)](https://www.postgresql.org/docs/9.5/static/functions-aggregate.html) for this part.
+- A `POST` route that allows a user to add a new hero (if you would like to add powers to your new hero, do that in the database for now. The ability to add powers in the UI will be added in stretch goals)
 - A `DELETE` request like `localhost:5000/hero/1` to delete a hero from the database
 
-## Hard Mode
+## Stretch Goals
 
 Create a view for `Universes` which allows a user to `GET`, `POST`, and `PUT` comic book universes with the following properties:
 
@@ -56,23 +56,9 @@ Create a `Hero` view for a single hero with
 
 Add and delete powers to a hero with
 
-- A `POST` request like `localhost:5000/hero/power/1` which would have a req.body like `{ power: 5 }` which would add the power with `id` of `5` to hero `1` (Wonder Woman in our example)
-- A `DELETE` request like `localhost:5000/hero/power/1` which would have a req.body like `{ power: 5 }` which would add the power with `id` of `5` to hero `1` (Wonder Woman in our example)
-
+- A `POST` request like `localhost:5000/hero_power` which would add a power to a specific hero
+- A `DELETE` request like `localhost:5000/hero_power` which would remove a power from a given hero
 
 This will require researching "Angular Route Params" - These are client-side route parameters that will look something like `localhost:5000/#!/hero/1` for the hero with id of `1` (may be a page that lists out all of the information about Wonder Woman) and `localhost:5000/#!/hero/4` for the hero with id of `4` (may be a page that lists out all of the information about Batman)
 
-## Ultra Pro Mode
-
-Delete requests really shouldn't have `data` and `req.body`. Instead, research angular `params` and `req.query` and the delete request should look like this:
-
-```JavaScript
-{
-    method: 'DELETE',
-    url: '/hero/power',
-    params: {
-        hero_id: 1,
-        power_id: 5
-    }
-}
-```
+Here is [a video with an example of route params](https://drive.google.com/file/d/0B9sCDSmGi72ZNXZKQkFJRG1HOFk/view?usp=sharing)

@@ -11,3 +11,7 @@ VALUES ('Super Strength', 'Users are unnaturally stronger than other members of 
 ('Flight', 'User can fly or otherwise move through the air using various methods. Some possibilities include using one or more forms of energy, wings or similar structures, or even mimicking or becoming an animal that can fly. Users are generally able to Levitate, and Glide as well.');
 
 SELECT * FROM power;
+
+-- Add queries for adding hero table here
+
+-- Queries for creating the hero_power junction table

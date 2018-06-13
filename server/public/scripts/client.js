@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider) {
     }).when('/powers', {
         templateUrl: '/views/powers.html',
         controller: 'PowersController as vm'
-    }).when('/powers', {
+    }).when('/heroes', {
         templateUrl: '/views/heroes.html',
         controller: 'HeroesController as vm'
     }).otherwise({

@@ -1,6 +1,6 @@
-app.controller('HeroController', function( ){
+app.controller('HeroController', function( HeroService ){
     let self = this
-
+    
 
 
 

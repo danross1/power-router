@@ -1,4 +1,4 @@
-app.controller('HeroController', function( HeroService ){
+app.controller('HeroesController', function( HeroService ){
     let self = this
     
 

@@ -1,4 +1,4 @@
-app.controller('PowerController', function( HeroService ){
+app.controller('PowersController', function( HeroService ){
     let self = this
     
 

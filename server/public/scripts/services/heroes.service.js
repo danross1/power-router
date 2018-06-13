@@ -28,6 +28,20 @@ app.service('HeroService', function ($http) {
         })
     }
 
+    vm.toPost = function() {
+        vm.submitHero;
+        console.log(`in tosend`);
+        return $http({
+            method: 'POST',
+            url: '/power',
+            data: vm.submitHero
+        }).then( function( response ){
+            console.log(`object to POST: ${submitHero}`);
+        }).catch( function(error) {
+            console.log(`Error POSTING object ${error}`)
+        })
+        
+    }
 
 
 

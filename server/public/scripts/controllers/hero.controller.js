@@ -11,6 +11,13 @@ app.controller('HeroesController', function( HeroService ){
             })
     }
 
+    self.deleteButton = function( id ){
+        HeroService.delete( id )
+            .then(function(response){
+                self.getHero();
+            })
+    }
+
 
     self.getHero();
 });

@@ -14,6 +14,19 @@ app.service('HeroService', function ($http) {
         })
     }
 
+    vm.delete = function(id){
+        return $http({
+            method: 'DELETE',
+            url: '/power/id'
+        })
+        .then( function( response ){
+            console.log(`Successful DELETE in heroservice`)
+        })
+        .catch( function( error ){
+            console.log('Error DELETE in heroService', error);
+            
+        })
+    }
 
 
 

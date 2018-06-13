@@ -18,7 +18,7 @@
                 <tr ng-repeat="hero in HC.displayArray">
                     <td>TEST DATA - Captain Underpants</td>
                     <td> powers go here </td>
-                    <td> <button ng-click="HC.deleteButton()">Delete</button> </td>
+                    <td> <button ng-click="HC.deleteButton( hero.id )">Delete</button> </td>
                 </tr>
             </tbody>
         </table>

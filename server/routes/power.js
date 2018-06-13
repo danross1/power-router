@@ -21,4 +21,28 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function(req, res) {
+    pool.connect(function (errorConnectingToDatabase, client, done) {
+        if (errorConnectingToDatabase) {
+            console.log('error', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            let powerName = req.body.name;
+            let powerDescription = req.body.description;
+            const queryText = `INSERT INTO power (name, description)
+                VALUES($1, $2)`;
+            client.query(queryText, [powerName, powerDescription], function (errorMakingDatabaseQuery, result) {
+                done();
+                if (errorMakingDatabaseQuery) {
+                    console.log('error', errorMakingDatabaseQuery);
+                    res.sendStatus(500);
+                } else {
+                    res.send(result.rows);
+                }
+            });
+        }
+    });
+});
+       
+
 module.exports = router;

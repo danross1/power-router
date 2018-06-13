@@ -18,11 +18,21 @@ app.controller('HeroesController', function( HeroService ){
             })
     }
 
+heroPost
+    self.submitButton = function( ) {
+        self.submit = {
+            hero: self.heroName,
+            power: self.heroPower
+        }
+        HeroService.submitHero = self.submit;
+        HeroService.toPost();
+
     self.postHero = function( ) {
         self.submit = {
             hero: HC.heroName,
             power: HC.heroPower
         }
+master
     }
 
     self.getHero();

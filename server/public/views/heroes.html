@@ -1,12 +1,27 @@
 <div ng-controller="HeroesController as HC">
     <header class="heroHeader">Heroes View</header>
-
-
-
-
-
-
-
-
+    {{HC.test}}  :connected to controller
+    <div>
+        <input type="text" placeholder="Hero Name" ng-model="HC.heroName">
+        <input type="text" placeholder="Powers" ng-model="HC.heroName">
+        <button ng-click="HC.submitButton()">Submit</button>
+    </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Hero</td>
+                    <td>Powers</td>
+                    <td> </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="hero in HC.displayArray">
+                    <td>TEST DATA - Captain Underpants</td>
+                    <td> powers go here </td>
+                    <td> <button ng-click="HC.deleteButton()">Delete</button> </td>
+                </tr>
+            </tbody>
+        </table>
+    
 
 </div>

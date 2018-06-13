@@ -56,11 +56,11 @@ router.put('/:id', function(req, res) {
             res.sendStatus(500);
         } else {
             let powerID = req.params.id;
-            let powerName =req.body.name || null;
+            let powerName = req.body.name || null;
             let powerDescription = req.body.description || null;
             let powerInjection = [];
             if(powerName && powerDescription) {
-                queryText = `UPDATE power SET name=$1 AND description=$2 WHERE id=$3`;
+                queryText = `UPDATE power SET name=$1, description=$2 WHERE id=$3`;
                 powerInjection = [powerName, powerDescription, powerID];
             } else if(!powerName){
                 queryText = `UPDATE power SET description=$1 WHERE id=$2`;
@@ -69,8 +69,8 @@ router.put('/:id', function(req, res) {
                 queryText = `UPDATE power SET name=$1 WHERE id=$2`;
                 powerInjection = [powerName, powerID];
             }
-            // console.log('queryText:', queryText);
-            // console.log('powerInjection:', powerInjection);
+            console.log('queryText:', queryText);
+            console.log('powerInjection:', powerInjection);
             
             
             client.query(queryText, powerInjection, function (errorMakingDatabaseQuery, result) {

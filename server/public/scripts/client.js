@@ -6,10 +6,10 @@ app.config(['$routeProvider', function($routeProvider) {
         controller: 'HomeController as vm'
     }).when('/powers', {
         templateUrl: '/views/powers.html',
-        controller: 'PowersController as vm'
+        controller: 'PowersController as PC'
     }).when('/heroes', {
         templateUrl: '/views/heroes.html',
-        controller: 'HeroesController as vm'
+        controller: 'HeroesController as HC'
     }).otherwise({
         template: '<h1>404</h1>'
     });

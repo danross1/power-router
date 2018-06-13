@@ -12,6 +12,15 @@ VALUES ('Super Strength', 'Users are unnaturally stronger than other members of 
 
 SELECT * FROM power;
 
--- Add queries for adding hero table here
+CREATE TABLE hero (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(80) NOT NULL,
+	backstory VARCHAR(1000)
+);
 
 -- Queries for creating the hero_power junction table
+CREATE TABLE hero_power (
+	id SERIAL PRIMARY KEY,
+	hero_id INT REFERENCES hero ON DELETE CASCADE,
+	power_id INT REFERENCES power
+);

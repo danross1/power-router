@@ -10,7 +10,7 @@ router.get('/all', function (req, res) {
         } else {
             let queryText = `SELECT hero.name AS hero, power.name AS power FROM hero
                 JOIN hero_power ON hero.id=hero_id
-                JOIN power ON power.id = power_id;`
+                JOIN power ON power.id = power_id ORDER BY hero.name;`
             console.log('queryText:', queryText);
             client.query(queryText, function (errorMakingDatabaseQuery, result) {
                 done();
@@ -18,7 +18,6 @@ router.get('/all', function (req, res) {
                     console.log('error', errorMakingDatabaseQuery);
                     res.sendStatus(500);
                 } else {
-                    console.log('sending back:', result.rows);
                     res.send(result.rows);
                 }
             });

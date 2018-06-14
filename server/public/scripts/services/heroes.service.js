@@ -5,10 +5,10 @@ app.service('HeroService', function ($http) {
     vm.getHeroes = function(){
         return $http({
             method: 'GET',
-            url: '/power'
+            url: '/hero/all'
         }).then( function( response ){
             console.log('Success GET call in getHeroes:', response.data);
-            vm.heroArray = response.data
+            vm.heroArray = response.data;
         }).catch( function(error){
             console.log('Error GET call in getHeroes:', error)
         })

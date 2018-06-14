@@ -17,8 +17,11 @@
         </thead>
         <tbody>
             <tr ng-repeat="hero in HC.displayArray">
-                <td>TEST DATA - Captain Underpants</td>
-                <td> powers go here </td>
+                <td>{{hero.hero}}</td>
+                <td> <ul ng-repeat="power in hero.power">
+                        <li>{{power}}</li>
+                    </ul>
+                </td>
                 <td> <button ng-click="HC.deleteButton( hero.id )">Delete</button> </td>
             </tr>
         </tbody>
